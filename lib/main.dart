@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  // todo-03-provider-07: register the provider
   runApp(
     MultiProvider(
       providers: [
+        Provider(create: (context) => FileService()),
         ChangeNotifierProvider(
           create: (context) => FileProvider(context.read<FileService>()),
         ),
-        Provider(create: (context) => FileService()),
       ],
       child: const MyApp(),
     ),
