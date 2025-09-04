@@ -4,6 +4,7 @@ import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
 class FileService {
+  // Path
   Future<String> getFilePath(String filename) async {
     final directory = await getApplicationDocumentsDirectory();
     final prefixDirectory = directory.path;
@@ -11,6 +12,7 @@ class FileService {
     return absolutePath;
   }
 
+  // Write File
   Future<void> writeFile(String filename, String contents) async {
     try {
       final filePath = await getFilePath(filename);
@@ -21,6 +23,7 @@ class FileService {
     }
   }
 
+  // Read File
   Future<String> readFile(String filename) async {
     try {
       final filePath = await getFilePath(filename);
@@ -33,6 +36,7 @@ class FileService {
     }
   }
 
+  // Read Directory
   Future<List<String>>getFileInDirectory() async{
     try{
       final directory = await getApplicationDocumentsDirectory();

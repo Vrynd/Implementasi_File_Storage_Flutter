@@ -1,8 +1,21 @@
+import 'package:file_app/provider/file_provider.dart';
 import 'package:file_app/screens/home_screen.dart';
+import 'package:file_app/service/file_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => FileProvider(context.read<FileService>()),
+        ),
+        Provider(create: (context) => FileService()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
