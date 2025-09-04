@@ -40,7 +40,7 @@ class FileProvider extends ChangeNotifier {
   }
 
   // Get File
-  Future<void> getFileInDirectory() async{
+  Future<void> getAllFileInDirectory() async{
     try{
       _filesName = await _service.getFileInDirectory();
       notifyListeners();
